@@ -1,0 +1,45 @@
+
+* {
+    font-family : "Courier New", Courier, Monoco;
+    font-size   : 16px;
+    background  : #fff;
+    border      : none;
+    margin      : 0;
+    padding     : 0;
+}
+
+.content {
+    border  : 1px solid black;
+    margin  : 5px;
+    padding : 5px;
+}
+
+#header {
+}
+
+#header .logo {
+    font-weight : bold;
+    font-size   : 1.4em;
+}
+
+#header .navigation {
+    text-align : center;
+}
+
+#header .navigation > ul {
+    list-style : none;
+}
+
+#header .navigation > ul > li {
+    display : inline;
+    margin  : 0 20px;
+}
+
+#activeContent {
+}
+
+#inactiveContent {
+    display : none;
+}
+
+
