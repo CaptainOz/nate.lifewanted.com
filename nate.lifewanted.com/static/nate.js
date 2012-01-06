@@ -46,7 +46,7 @@ var site = (function(){
         var params    = { pathStr : hash };
         var argsStart = hash.indexOf( '?' );
         if( argsStart != -1 ){
-            params.args = util.parseQuery( hash.substr( argsStart + 1 ) );
+            params.args = util.parseQueryString( hash.substr( argsStart + 1 ) );
         }
         return params;
     }
