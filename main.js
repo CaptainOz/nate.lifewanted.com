@@ -19,7 +19,7 @@ var servers = {};
                     connect.favicon(),
                     connect.logger(),
                     connect.gzip(),
-                    connect.staticProvider( hostDir + '/static' ),
+                    connect.static( hostDir + '/static' ),
                     require( hostDir + '/api.js' )()
                 )
             )
