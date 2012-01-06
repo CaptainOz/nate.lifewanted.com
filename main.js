@@ -3,6 +3,7 @@ var servers = {};
 (function(){
     "use strict";
     var connect = require( 'connect' );
+    connect.gzip = require( 'connect-gzip' );
 
     var hosts = [
         'nate.lifewanted.com'
