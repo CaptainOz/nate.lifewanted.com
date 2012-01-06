@@ -10,13 +10,16 @@ var servers = {};
 
     for( var i in hosts ){
         var hostName = hosts[i];
+        var hostDir  = __dirname + '/' + hostName;
         servers[hostName] = connect(
             connect.vhost(
                 hostName,
-                connect.createServer(
+                connect(
                     connect.favicon(),
                     connect.logger(),
-                    connect.static( __dirname + '/' + hostName + '/static' )
+                    connect.gzip(),
+                    connect.staticProvider( hostDir + '/static' ),
+                    require( hostDir + '/api.js' )()
                 )
             )
         ).listen( 80 );
