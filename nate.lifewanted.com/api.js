@@ -1,12 +1,17 @@
 
-module.exports = function(){
+module.exports = function( apiURL ){
+    "use strict";
+
     function nateLifeWantedComAPI( req, res, next ){
         // Pass off any requests that aren't for the API.
-        if( req.url != '/api' ){
+        console.log( req.url );
+        if( req.url != apiURL ){
             next();
+            return;
         }
-    
-        res.simpleBody( 200, "Hello, API!", "text/plain" );
+
+        res.end( "API says hi!" );
+
     }
     
     return nateLifeWantedComAPI;
