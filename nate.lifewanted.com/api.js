@@ -5,9 +5,9 @@ module.exports = function(){
         if( req.url != '/api' ){
             next();
         }
-    }
     
-    res.simpleBody( 200, "Hello, API!", "text/plain" );
+        res.simpleBody( 200, "Hello, API!", "text/plain" );
+    }
     
     return nateLifeWantedComAPI;
 };
