@@ -1,7 +1,12 @@
 
 var site = (function(){
+    "use strict";
+
+    // Global objects.
+    var util = util;
+
+    // Local objects.
     var site = {};
-    var util = util || null;
     var _handlers = {};
 
     /// Changes the page's active content to match the URL hash.
