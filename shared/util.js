@@ -12,6 +12,23 @@ var util = (function(){
         return Boolean( a !== undefined && a !== null );
     };
 
+    /// Detect if the given object is an array.
+    ///
+    /// If Array.isArray exists, it is used. Otherwise the object is checked if
+    /// it is an instance of the Array class.
+    ///
+    /// @param {*} a The object tot test.
+    ///
+    /// @return {Boolean} True if the object is an Array.
+    if( util.exists( Array.isArray ) ){
+        util.isArray = Array.isArray;
+    }
+    else {
+        util.isArray = function( a ){
+            return a instanceof Array;
+        };
+    }
+
     /// Parses a query string into an mapping of name/value pairs.
     ///
     /// @param {String} queryStr The query string to parse.
