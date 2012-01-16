@@ -73,6 +73,23 @@ var site = (function(){
         _handlers[ handlerName ].run( params );
     }
 
+    /// Loads a single content handler from the API.
+    ///
+    /// @param {String}   handlerName The name of the content handler to get.
+    /// @param {Function} callback    The function to call when the API responds.
+    function _loadContentHandler( handlerName, callback ){
+        api.getContentHandler( handlerName, function( res ){
+            if( res.error ){
+                callback( res.error );
+                return;
+            }
+
+            // We got the content handler, add it to the loaded ones.
+            _handlers[ handlerName ] = res.contentHandler;
+            callback();
+        });
+    }
+
     // Now that all the functions are defined lets set up our event handling.
     $(window).bind( 'hashchange', $.proxy( site, 'updateContent' ) );
 
