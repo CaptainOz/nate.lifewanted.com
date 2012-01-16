@@ -17,9 +17,14 @@ var util = (function(){
     /// @param {*} a The object to test.
     ///
     /// @return {Boolean} True if the object is a function.
-    util.isFunction = function( a ){
-        return Boolean( a instanceof Function || typeof a == 'function' );
-    };
+    if( util.exists( $.isFunction ) ){
+        util.isFunction = $.isFunction;
+    }
+    else {
+        util.isFunction = function( a ){
+            return Boolean( a instanceof Function || typeof a == 'function' );
+        };
+    }
 
     /// Detect if the given object is an array.
     ///
@@ -35,6 +40,20 @@ var util = (function(){
     else {
         util.isArray = function( a ){
             return a instanceof Array;
+        };
+    }
+
+    /// Detects if the given object is just an object.
+    ///
+    /// @param {*} a The object to test.
+    ///
+    /// @return {Boolean} True if the object is just an object.
+    if( util.isFunction( $.isPlainObject ) ){
+        util.isObject = $.isPlainObject;
+    }
+    else {
+        util.isObject = function( a ){
+            return Boolean( a instanceof Object && !util.isArray( a ) );
         };
     }
 
