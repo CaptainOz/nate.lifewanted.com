@@ -73,6 +73,9 @@ var site = (function(){
         _handlers[ handlerName ].run( params );
     }
 
+    // Now that all the functions are defined lets set up our event handling.
+    $(window).bind( 'hashchange', $.proxy( site, 'updateContent' ) );
+
     return site;
 })();
 
