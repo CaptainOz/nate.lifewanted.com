@@ -2,9 +2,6 @@
 var site = (function(){
     "use strict";
 
-    // Global objects.
-    var util = util;
-
     // Local objects.
     var site = {};
     var _handlers = {};
