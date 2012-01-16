@@ -12,6 +12,15 @@ var util = (function(){
         return Boolean( a !== undefined && a !== null );
     };
 
+    /// Detects if the given object is a function.
+    ///
+    /// @param {*} a The object to test.
+    ///
+    /// @return {Boolean} True if the object is a function.
+    util.isFunction = function( a ){
+        return Boolean( a instanceof Function || typeof a == 'function' );
+    };
+
     /// Detect if the given object is an array.
     ///
     /// If Array.isArray exists, it is used. Otherwise the object is checked if
@@ -20,7 +29,7 @@ var util = (function(){
     /// @param {*} a The object tot test.
     ///
     /// @return {Boolean} True if the object is an Array.
-    if( util.exists( Array.isArray ) ){
+    if( util.isFunction( Array.isArray ) ){
         util.isArray = Array.isArray;
     }
     else {
