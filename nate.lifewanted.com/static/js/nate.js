@@ -73,6 +73,10 @@ var site = (function(){
         _handlers[ handlerName ].run( params );
     }
 
+    function _runErrorHandler( error ){
+        console.log( error );
+    }
+
     /// Loads a single content handler from the API.
     ///
     /// @param {String}   handlerName The name of the content handler to get.
